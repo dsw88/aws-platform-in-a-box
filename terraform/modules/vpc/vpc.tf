@@ -1,7 +1,9 @@
 resource "aws_vpc" "vpc" {
-  cidr_block           = var.cidr_block
+  cidr_block           = local.vpc_cidr_block
   instance_tenancy     = "default"
   enable_dns_support   = true
   enable_dns_hostnames = true
-  tags                 = var.tags
+  tags = merge(var.tags, {
+    Name = var.name
+  })
 }

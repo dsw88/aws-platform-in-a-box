@@ -7,8 +7,8 @@ resource "aws_subnet" "public" {
   })
 }
 
-resource "aws_subnet" "private" {
-  for_each   = local.private_config
+resource "aws_subnet" "compute" {
+  for_each   = local.compute_config
   vpc_id     = aws_vpc.vpc.id
   cidr_block = each.value.cidr_block
   tags = merge(var.tags, {

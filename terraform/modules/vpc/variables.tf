@@ -1,14 +1,15 @@
 locals {
-  vpc_cidr_block = "10.0.0.0/16"
+  all_traffic_cidr = "0.0.0.0/0"
+  vpc_cidr_block   = "10.0.0.0/16"
   public_config = {
     a = {
-      cidr_block = "10.0.160.0/22"
+      cidr_block = "10.0.192.0/22"
     },
     b = {
-      cidr_block = "10.0.164.0/22"
+      cidr_block = "10.0.196.0/22"
     }
   }
-  private_config = {
+  compute_config = {
     a = {
       cidr_block = "10.0.0.0/18"
     },
